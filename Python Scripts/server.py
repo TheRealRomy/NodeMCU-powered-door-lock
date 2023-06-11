@@ -1,11 +1,15 @@
+# Imports
 from flask import Flask, request, jsonify
 import requests
 
+# Flask instantiation
 app = Flask(__name__)
 
+# Global variables
 gui_started = False
 nodemcu_connected = False
 
+# URL Endpoints
 @app.route('/gui-startup', methods=['POST'])
 def handle_gui_startup():
     global gui_started
@@ -36,5 +40,6 @@ def handle_server_connection_state():
     else:
         return "Server and NodeMCU is down."
 
+# Flask server runtime execution
 if __name__ == '__main__':
     app.run(host='192.168.100.4', port=5000)

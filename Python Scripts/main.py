@@ -1,3 +1,4 @@
+# Imports
 import customtkinter as ctk
 import requests
 import threading
@@ -85,7 +86,7 @@ def server_state_checker(server_response):
     
     return "Both connected!"
      
-# Open door
+# Open door requests
 def open_door():
     url = "http://192.168.100.44/open-door"
     try:
@@ -111,12 +112,12 @@ ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("green")
 main_window.title("Door-Lock")
 
-screen_width = main_window.winfo_screenwidth()  # Spawn point of the window
+screen_width = main_window.winfo_screenwidth()
 screen_height = main_window.winfo_screenheight()
 window_width = 240
 window_height = 190
-x = (screen_width // 2) - (window_width // 2)
-y = (screen_height // 2) - (window_height // 2)
+x = screen_width - window_width - 20
+y = screen_height - window_height - 40
 main_window.geometry(f"{window_width}x{window_height}+{x}+{y}")
 main_window.resizable(False, False)
 
