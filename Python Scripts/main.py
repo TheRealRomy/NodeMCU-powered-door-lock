@@ -13,7 +13,7 @@ server_connected = False
 # Functions
 # GUI -> Server
 def gui_startup_request(): 
-    url = "http://192.168.100.4:5000/gui-startup"
+    url = "http://192.168.100.9:5000/gui-startup"
     try:
         response = requests.post(url)
         if response.status_code != 200:
@@ -34,7 +34,7 @@ def server_to_gui_state(server_response):
     
 # GUI (3) -> Server (2) <- NodeMCU (1)
 def nodemcu_startup_request(): 
-    url = "http://192.168.100.4:5000/nodemcu-server-gui"
+    url = "http://192.168.100.9:5000/nodemcu-server-gui"
     try:
         response = requests.post(url)
         if response.status_code != 200:
@@ -55,7 +55,7 @@ def nodemcu_to_gui_state(server_response):
 
 # Server connection checker 
 def check_server_connection():
-    url = "http://192.168.100.4:5000/server-connection-state-check"
+    url = "http://192.168.100.9:5000/server-connection-state-check"
     while True:
         try:
             response = requests.post(url)
@@ -86,7 +86,7 @@ def server_state_checker(server_response):
     
     return "Both connected!"
      
-# Open door requests
+# Open door
 def open_door():
     url = "http://192.168.100.44/open-door"
     try:
@@ -112,12 +112,12 @@ ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("green")
 main_window.title("Door-Lock")
 
-screen_width = main_window.winfo_screenwidth()
+screen_width = main_window.winfo_screenwidth()  # Spawn point of the window
 screen_height = main_window.winfo_screenheight()
 window_width = 240
 window_height = 190
 x = screen_width - window_width - 20
-y = screen_height - window_height - 40
+y = screen_height - window_height - 80
 main_window.geometry(f"{window_width}x{window_height}+{x}+{y}")
 main_window.resizable(False, False)
 

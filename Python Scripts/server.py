@@ -42,4 +42,4 @@ def handle_server_connection_state():
 
 # Flask server runtime execution
 if __name__ == '__main__':
-    app.run(host='192.168.100.4', port=5000)
+    app.run(host='192.168.100.9', port=5000)
